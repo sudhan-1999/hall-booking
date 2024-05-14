@@ -192,3 +192,41 @@
     },
   ];
 */  
+/*app.get("/customer/bookings/:customerName", async (req, res) => {/* 
+ try {
+    const customerName = req.params;
+
+    const bookings = await client
+      .db("hallbooking")
+      .collection("bookings")
+      .aggregate([
+        {
+          $match: { CustomerName: customerName }
+        },
+        {
+          $group: {
+            _id: "$CustomerName",
+            count: { $sum: 1 }
+          }
+        }
+      ])
+      .toArray();
+console.log(bookings);
+res.send(bookings);
+    /*if (bookings.length === 0) {
+      res.status(404).send("No bookings found for the customer");
+      return;
+    }
+
+    const { _id, count } = bookings[0];
+    const response = {
+      CustomerName: _id,
+      NumberOfBookings: count
+    };
+
+    res.send(response);*/
+  /*} catch (error) {
+    console.error("Error:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});*/
